@@ -78,8 +78,8 @@ or drop `CTX_SIZE` to `1024` (~25 MB KV savings) if the service restarts (OOM).
 
 ## Honest expectations (free tier)
 
-- **Speed:** ~5-15 tok/s on 0.1 CPU. Fine for autocomplete, classification,
-  summarization, small code tasks. Not for long agentic chats.
+- **Speed:** ~3 tok/s generation, ~8 tok/s prompt processing (measured on the free plan).
+  Fine for autocomplete, classification, short answers, small code tasks. Not for long agentic chats.
 - **Spin-down:** after 15 min idle the instance sleeps; first request after idle
   takes ~15-30 s (image start + model load).
 - **Not a replacement for ZenLite/cloud models** — it's your always-available,
