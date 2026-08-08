@@ -1,0 +1,20 @@
+# Render Blueprint — one-click deploy:
+#   https://render.com/deploy?repo=https://github.com/Dubucute/render-llm
+# or in the Render dashboard: New + > Blueprint > paste this repo URL.
+#
+# Notes:
+# - Free instances can't run health checks (they spin down), so healthCheckPath is
+#   intentionally omitted. The server still exposes GET /health for manual checks.
+# - Lower CTX_SIZE to 1024 if you hit memory limits (peak RAM ~460 MB at 2048).
+services:
+  - type: web
+    name: render-llm
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: CTX_SIZE
+        value: "2048"
+      - key: THREADS
+        value: "2"
