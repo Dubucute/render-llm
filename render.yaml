@@ -8,7 +8,7 @@
 # - Lower CTX_SIZE to 1024 if you hit memory limits (peak RAM ~460 MB at 2048).
 services:
   - type: web
-    name: render-llm
+    name: dubu-llm
     runtime: docker
     plan: free
     autoDeploy: true

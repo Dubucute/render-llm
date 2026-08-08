@@ -13,15 +13,15 @@ No API keys, no external dependency, no vendor lock-in — your own tiny model e
 
 Or: Render dashboard -> **New +** -> **Blueprint** -> paste `https://github.com/Dubucute/render-llm`.
 
-After deploy you get `https://render-llm.onrender.com` (name may differ).
+After deploy you get `https://dubu-llm.onrender.com` (name may differ).
 
 ## Quick test
 
 ```bash
-curl https://render-llm.onrender.com/health
+curl https://dubu-llm.onrender.com/health
 # {"status":"ok"}
 
-curl https://render-llm.onrender.com/v1/chat/completions \
+curl https://dubu-llm.onrender.com/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{"model":"qwen2.5-0.5b","messages":[{"role":"user","content":"Say hello in 5 words"}],"max_tokens":64}'
 ```
@@ -39,7 +39,7 @@ OpenAI-compatible base URL: `https://<your-service>.onrender.com/v1` (any key st
       "npm": "@ai-sdk/openai-compatible",
       "name": "Render LLM (Qwen 0.5B)",
       "options": {
-        "baseURL": "https://render-llm.onrender.com/v1",
+        "baseURL": "https://dubu-llm.onrender.com/v1",
         "apiKey": "none"
       },
       "models": {
