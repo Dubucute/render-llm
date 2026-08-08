@@ -57,8 +57,9 @@ point `baseURL` at `https://<your-service>.onrender.com/v1`, model id `qwen2.5-0
 
 ## Swap models (no rebuild needed)
 
-Change the `MODEL_URL` env var in the Render dashboard (Service -> Environment),
-or edit `MODEL_URL` in the Dockerfile to bake a different model at build time.
+Change the `MODEL_URL` line in the Dockerfile to bake a different model at build time and redeploy
+(the default model is baked into the image, so the runtime env fallback in `entrypoint.sh` only
+kicks in if the baked file is absent).
 
 | Model | File (GGUF) | Size | Quality |
 |---|---|---|---|
