@@ -7,7 +7,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV LLAMA_VERSION=b10326
 ENV MODEL_URL=https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf
 
-RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates \
+# libgomp1 = OpenMP runtime required by llama.cpp CPU kernels (libgomp.so.1)
+# curl pulls libssl3t64 automatically; libstdc++6/libgcc-s1 come with the base image
+RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates libgomp1 libstdc++6 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt/llama
